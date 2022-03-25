@@ -50,8 +50,8 @@ import java.util.Map;
 
 /**
  * OSM element parsers generated from the <a href="https://github.com/omniscale/imposm3">imposm3</a> table definitions
- * in the <a href="https://github.com/openmaptiles/openmaptiles/blob/v3.13/openmaptiles.yaml">OpenMapTiles vector tile
- * schema</a>.
+ * in the <a href="https://github.com/openmaptiles/openmaptiles/blob/planetiler_v1/openmaptiles.yaml">OpenMapTiles
+ * vector tile schema</a>.
  *
  * These filter and parse the raw OSM key/value attribute pairs on tags into records with fields that match the columns
  * in the tables that imposm3 would generate. Layer implementations can "subscribe" to elements from each "table" but
@@ -405,8 +405,8 @@ public class Tables {
     }
 
     /** Imposm3 "mapping" to filter OSM elements that should appear in this "table". */
-    public static final Expression MAPPING =
-      and(matchAny("aerialway", "cable_car", "gondola"), matchType("linestring"));
+    public static final Expression MAPPING = and(matchAny("aerialway", "chair_lift", "drag_lift", "platter", "t-bar",
+      "gondola", "cable_car", "j-bar", "mixed_lift"), matchType("linestring"));
 
     /**
      * Interface for layer implementations to extend to subscribe to OSM elements filtered and parsed as
@@ -712,7 +712,7 @@ public class Tables {
         "public_building", "recycling", "restaurant", "school", "shelter", "swimming_pool", "taxi", "telephone",
         "theatre", "toilets", "townhall", "university", "veterinary", "waste_basket"),
       matchAny("barrier", "bollard", "border_control", "cycle_barrier", "gate", "lift_gate", "sally_port", "stile",
-        "toll_booth"),
+        "toll_booth", "swing_gate", "block"),
       matchAny("building", "dormitory"), matchAny("highway", "bus_stop"),
       matchAny("historic", "monument", "castle", "ruins"),
       matchAny("landuse", "basin", "brownfield", "cemetery", "reservoir", "winter_sports"),
@@ -779,7 +779,7 @@ public class Tables {
         "public_building", "recycling", "restaurant", "school", "shelter", "swimming_pool", "taxi", "telephone",
         "theatre", "toilets", "townhall", "university", "veterinary", "waste_basket"),
       matchAny("barrier", "bollard", "border_control", "cycle_barrier", "gate", "lift_gate", "sally_port", "stile",
-        "toll_booth"),
+        "toll_booth", "swing_gate", "block"),
       matchAny("building", "dormitory"), matchAny("highway", "bus_stop"),
       matchAny("historic", "monument", "castle", "ruins"),
       matchAny("landuse", "basin", "brownfield", "cemetery", "reservoir", "winter_sports"),
